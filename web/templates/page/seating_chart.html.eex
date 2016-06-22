@@ -1,0 +1,2 @@
+<%= render "banner.html" %>
+<div id="elm-seating-chart"></div>

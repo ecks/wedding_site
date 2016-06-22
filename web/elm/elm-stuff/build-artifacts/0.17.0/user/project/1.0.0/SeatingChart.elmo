@@ -1,0 +1,285 @@
+var _user$project$SeatingChart$displayImage = F4(
+	function (offSet, path, width, height) {
+		return A2(
+			_evancz$elm_graphics$Collage$move,
+			offSet,
+			_evancz$elm_graphics$Collage$toForm(
+				A3(_evancz$elm_graphics$Element$image, width, height, path)));
+	});
+var _user$project$SeatingChart$displayImages = A2(
+	_elm_lang$core$Basics_ops['++'],
+	_elm_lang$core$Native_List.fromArray(
+		[
+			A4(
+			_user$project$SeatingChart$displayImage,
+			{ctor: '_Tuple2', _0: -160, _1: 100},
+			'images/sheilla_avatar.gif',
+			40,
+			40),
+			A4(
+			_user$project$SeatingChart$displayImage,
+			{ctor: '_Tuple2', _0: -160, _1: 50},
+			'images/patrick_avatar.jpg',
+			40,
+			40),
+			A4(
+			_user$project$SeatingChart$displayImage,
+			{ctor: '_Tuple2', _0: -160, _1: 0},
+			'images/mark_avatar.png',
+			40,
+			40),
+			A4(
+			_user$project$SeatingChart$displayImage,
+			{ctor: '_Tuple2', _0: -160, _1: -50},
+			'images/aunt_liz_avatar.png',
+			40,
+			40)
+		]),
+	A2(
+		_elm_lang$core$Basics_ops['++'],
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A4(
+				_user$project$SeatingChart$displayImage,
+				{ctor: '_Tuple2', _0: -100, _1: -60},
+				'images/harry_avatar.jpeg',
+				40,
+				40)
+			]),
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Native_List.fromArray(
+				[
+					A4(
+					_user$project$SeatingChart$displayImage,
+					{ctor: '_Tuple2', _0: -40, _1: 100},
+					'images/pam_avatar.jpg',
+					40,
+					40),
+					A4(
+					_user$project$SeatingChart$displayImage,
+					{ctor: '_Tuple2', _0: -40, _1: 50},
+					'images/mike_avatar.jpeg',
+					40,
+					40),
+					A4(
+					_user$project$SeatingChart$displayImage,
+					{ctor: '_Tuple2', _0: -40, _1: 0},
+					'images/jake_avatar.jpeg',
+					40,
+					40),
+					A4(
+					_user$project$SeatingChart$displayImage,
+					{ctor: '_Tuple2', _0: -40, _1: -50},
+					'images/alice_avatar.jpeg',
+					40,
+					40)
+				]),
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A4(
+						_user$project$SeatingChart$displayImage,
+						{ctor: '_Tuple2', _0: 90, _1: 100},
+						'images/chipmunk_avatar.jpeg',
+						40,
+						40),
+						A4(
+						_user$project$SeatingChart$displayImage,
+						{ctor: '_Tuple2', _0: 90, _1: 50},
+						'images/bradway_avatar.jpg',
+						40,
+						40),
+						A4(
+						_user$project$SeatingChart$displayImage,
+						{ctor: '_Tuple2', _0: 90, _1: 0},
+						'images/kristina_avatar.jpg',
+						40,
+						40),
+						A4(
+						_user$project$SeatingChart$displayImage,
+						{ctor: '_Tuple2', _0: 90, _1: -50},
+						'images/svetla_avatar.jpeg',
+						40,
+						40)
+					]),
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					_elm_lang$core$Native_List.fromArray(
+						[
+							A4(
+							_user$project$SeatingChart$displayImage,
+							{ctor: '_Tuple2', _0: 150, _1: -60},
+							'images/stilian_avatar.jpg',
+							40,
+							40)
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							A4(
+							_user$project$SeatingChart$displayImage,
+							{ctor: '_Tuple2', _0: 210, _1: 100},
+							'images/zach_avatar.jpg',
+							40,
+							40),
+							A4(
+							_user$project$SeatingChart$displayImage,
+							{ctor: '_Tuple2', _0: 210, _1: 50},
+							'images/brenda_avatar.jpeg',
+							40,
+							40),
+							A4(
+							_user$project$SeatingChart$displayImage,
+							{ctor: '_Tuple2', _0: 210, _1: 0},
+							'images/nancy_avatar.png',
+							40,
+							40),
+							A4(
+							_user$project$SeatingChart$displayImage,
+							{ctor: '_Tuple2', _0: 210, _1: -50},
+							'images/yana_avatar.jpeg',
+							40,
+							40)
+						]))))));
+var _user$project$SeatingChart$displayRect = F3(
+	function (offSet, width, height) {
+		return A2(
+			_evancz$elm_graphics$Collage$move,
+			offSet,
+			A2(
+				_evancz$elm_graphics$Collage$filled,
+				_elm_lang$core$Color$brown,
+				A2(_evancz$elm_graphics$Collage$rect, width, height)));
+	});
+var _user$project$SeatingChart$displayRects = _elm_lang$core$Native_List.fromArray(
+	[
+		A3(
+		_user$project$SeatingChart$displayRect,
+		{ctor: '_Tuple2', _0: -100, _1: 30},
+		140,
+		200),
+		A3(
+		_user$project$SeatingChart$displayRect,
+		{ctor: '_Tuple2', _0: 150, _1: 30},
+		140,
+		200)
+	]);
+var _user$project$SeatingChart$displayName = F2(
+	function (offSet, name) {
+		return A2(
+			_evancz$elm_graphics$Collage$move,
+			offSet,
+			_evancz$elm_graphics$Collage$text(
+				_evancz$elm_graphics$Text$fromString(name)));
+	});
+var _user$project$SeatingChart$displayNames = A2(
+	_elm_lang$core$Basics_ops['++'],
+	_elm_lang$core$Native_List.fromArray(
+		[
+			A2(
+			_user$project$SeatingChart$displayName,
+			{ctor: '_Tuple2', _0: -200, _1: -50},
+			'Aunt Liz'),
+			A2(
+			_user$project$SeatingChart$displayName,
+			{ctor: '_Tuple2', _0: -200, _1: 0},
+			'Mark'),
+			A2(
+			_user$project$SeatingChart$displayName,
+			{ctor: '_Tuple2', _0: -200, _1: 50},
+			'Pat'),
+			A2(
+			_user$project$SeatingChart$displayName,
+			{ctor: '_Tuple2', _0: -200, _1: 100},
+			'Sheilla')
+		]),
+	A2(
+		_elm_lang$core$Basics_ops['++'],
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_user$project$SeatingChart$displayName,
+				{ctor: '_Tuple2', _0: -100, _1: -100},
+				'Harry')
+			]),
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Native_List.fromArray(
+				[
+					A2(
+					_user$project$SeatingChart$displayName,
+					{ctor: '_Tuple2', _0: 0, _1: -50},
+					'Alice'),
+					A2(
+					_user$project$SeatingChart$displayName,
+					{ctor: '_Tuple2', _0: 0, _1: 0},
+					'Jake'),
+					A2(
+					_user$project$SeatingChart$displayName,
+					{ctor: '_Tuple2', _0: 0, _1: 50},
+					'Mike'),
+					A2(
+					_user$project$SeatingChart$displayName,
+					{ctor: '_Tuple2', _0: 0, _1: 100},
+					'Pam')
+				]),
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_user$project$SeatingChart$displayName,
+						{ctor: '_Tuple2', _0: 50, _1: -50},
+						'Svetla'),
+						A2(
+						_user$project$SeatingChart$displayName,
+						{ctor: '_Tuple2', _0: 50, _1: 0},
+						'Kristina'),
+						A2(
+						_user$project$SeatingChart$displayName,
+						{ctor: '_Tuple2', _0: 50, _1: 50},
+						'Fatema'),
+						A2(
+						_user$project$SeatingChart$displayName,
+						{ctor: '_Tuple2', _0: 50, _1: 100},
+						'Trisha')
+					]),
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					_elm_lang$core$Native_List.fromArray(
+						[
+							A2(
+							_user$project$SeatingChart$displayName,
+							{ctor: '_Tuple2', _0: 150, _1: -100},
+							'Stilian')
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							A2(
+							_user$project$SeatingChart$displayName,
+							{ctor: '_Tuple2', _0: 250, _1: -50},
+							'Yana'),
+							A2(
+							_user$project$SeatingChart$displayName,
+							{ctor: '_Tuple2', _0: 250, _1: 0},
+							'Nancy'),
+							A2(
+							_user$project$SeatingChart$displayName,
+							{ctor: '_Tuple2', _0: 250, _1: 50},
+							'Brenda'),
+							A2(
+							_user$project$SeatingChart$displayName,
+							{ctor: '_Tuple2', _0: 250, _1: 100},
+							'Zach')
+						]))))));
+var _user$project$SeatingChart$view = _evancz$elm_graphics$Element$toHtml(
+	A3(
+		_evancz$elm_graphics$Collage$collage,
+		800,
+		500,
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_user$project$SeatingChart$displayRects,
+			A2(_elm_lang$core$Basics_ops['++'], _user$project$SeatingChart$displayImages, _user$project$SeatingChart$displayNames))));
+var _user$project$SeatingChart$main = {main: _user$project$SeatingChart$view};

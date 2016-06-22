@@ -1,0 +1,123 @@
+var _user$project$EventDetailsPictures$displayImage = F4(
+	function (offSet, path, width, height) {
+		return A2(
+			_evancz$elm_graphics$Collage$move,
+			offSet,
+			_evancz$elm_graphics$Collage$toForm(
+				A3(_evancz$elm_graphics$Element$image, width, height, path)));
+	});
+var _user$project$EventDetailsPictures$Dimensions = F2(
+	function (a, b) {
+		return {width: a, height: b};
+	});
+var _user$project$EventDetailsPictures$Image = F2(
+	function (a, b) {
+		return {filename: a, dimensions: b};
+	});
+var _user$project$EventDetailsPictures$getImageFromModel = function (_p0) {
+	var _p1 = _p0;
+	var _p2 = A2(
+		_elm_lang$core$Array$get,
+		_p1.currentImageIndex,
+		_elm_lang$core$Array$fromList(_p1.images));
+	if (_p2.ctor === 'Just') {
+		return _p2._0;
+	} else {
+		return A2(
+			_user$project$EventDetailsPictures$Image,
+			'',
+			A2(_user$project$EventDetailsPictures$Dimensions, 0, 0));
+	}
+};
+var _user$project$EventDetailsPictures$displayImages = function (model) {
+	var image = _user$project$EventDetailsPictures$getImageFromModel(model);
+	return _elm_lang$core$Native_List.fromArray(
+		[
+			A4(
+			_user$project$EventDetailsPictures$displayImage,
+			{ctor: '_Tuple2', _0: 0, _1: 0},
+			image.filename,
+			image.dimensions.width,
+			image.dimensions.height)
+		]);
+};
+var _user$project$EventDetailsPictures$Model = F2(
+	function (a, b) {
+		return {currentImageIndex: a, images: b};
+	});
+var _user$project$EventDetailsPictures$model = A2(
+	_user$project$EventDetailsPictures$Model,
+	0,
+	_elm_lang$core$Native_List.fromArray(
+		[
+			A2(
+			_user$project$EventDetailsPictures$Image,
+			'images/event_details1.jpg',
+			A2(_user$project$EventDetailsPictures$Dimensions, 250, 145)),
+			A2(
+			_user$project$EventDetailsPictures$Image,
+			'images/event_details2.jpg',
+			A2(_user$project$EventDetailsPictures$Dimensions, 250, 145))
+		]));
+var _user$project$EventDetailsPictures$update = F2(
+	function (msg, model) {
+		var _p3 = msg;
+		if (_p3.ctor === 'Prev') {
+			return A2(
+				_user$project$EventDetailsPictures$Model,
+				A2(
+					_elm_lang$core$Basics_ops['%'],
+					model.currentImageIndex - 1,
+					_elm_lang$core$List$length(model.images)),
+				model.images);
+		} else {
+			return A2(
+				_user$project$EventDetailsPictures$Model,
+				A2(
+					_elm_lang$core$Basics_ops['%'],
+					model.currentImageIndex + 1,
+					_elm_lang$core$List$length(model.images)),
+				model.images);
+		}
+	});
+var _user$project$EventDetailsPictures$Next = {ctor: 'Next'};
+var _user$project$EventDetailsPictures$Prev = {ctor: 'Prev'};
+var _user$project$EventDetailsPictures$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_evancz$elm_graphics$Element$toHtml(
+				A3(
+					_evancz$elm_graphics$Collage$collage,
+					250,
+					145,
+					_user$project$EventDetailsPictures$displayImages(model))),
+				A2(
+				_elm_lang$html$Html$button,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Events$onClick(_user$project$EventDetailsPictures$Prev)
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('<')
+					])),
+				A2(
+				_elm_lang$html$Html$button,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Events$onClick(_user$project$EventDetailsPictures$Next)
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('>')
+					]))
+			]));
+};
+var _user$project$EventDetailsPictures$main = {
+	main: _elm_lang$html$Html_App$beginnerProgram(
+		{model: _user$project$EventDetailsPictures$model, view: _user$project$EventDetailsPictures$view, update: _user$project$EventDetailsPictures$update})
+};

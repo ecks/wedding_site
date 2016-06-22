@@ -1,0 +1,9 @@
+<table class="nav_menu">
+<tr>
+<td><a href="/">Home</a></td>
+<td><a href="/about_us">About Us</a></td>
+<td><a href="/seating_chart">Seating Chart</a></td>
+<td><a href="/event_details">Event Details</a></td>
+</tr>
+</table>
+

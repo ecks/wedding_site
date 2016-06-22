@@ -1,0 +1,11 @@
+Hristo's Wishlist:
+<ul>
+  <%= for item <- hristo_wishlist do %>
+    <li><a href=<%= item["url"] %>><%= item["name"] %></a></li>
+  <% end %>
+</ul>
+<br>
+Leslie's Wishlist:
+<ul>
+  <li><a href="http://www.amazon.com/Home-Comfort-Sleep-6-Inch-Mattress/dp/B00HZNVFC2/ref=sr_1_7?s=furniture&ie=UTF8&qid=1460255577&sr=1-7&keywords=mattress"><%= leslie_wishlist %></a></li>
+</ul>

@@ -1,0 +1,22 @@
+<%= render "banner.html" %>
+<img src="/images/aboutus.jpg" style="margin-top:20px;" />
+<br>
+<br>
+<div id="elm-aboutus-pictures" style="float:right"></div>
+<table>
+<tr>
+<td>
+<h4>Hello Friends and Family!
+<br>
+<br> 
+<br>
+Leslie:
+I met Hristo my last semester in college at Starbucks on a rainy day in October of 2010. We both were students: me tired and drained of school and Hristo bright eyed and bushy tailed, ready to start his PhD. He wore his leather jacket  and had his dark brown hair with amber eyes that made my heart skip a beat when he entered the cafe. He held a conversation well and kept my interest even when he talked about his computers. I thought he was one cool cat that liked sipping espresso. I used to laugh at the saying," You had me at hello", but really, I knew he was someone special that day. I knew that he was going to change my life for the better. His accent threw me into a daydream that didn't seem to end even when we continued to date for the five years. We had some trials and overcame life obstacles with eachother, but we helped eachother through it. We never stopped being best friends. It made our love stronger for eachother and I knew he was the one for life that day he said hello and I will always remember it.
+<br><br>
+Hristo:
+I will never forget our first date together. Leslie has brought so much happiness into my life. I am still so in love with her.
+</td>
+</tr>
+</table>
+<br>
+<br>

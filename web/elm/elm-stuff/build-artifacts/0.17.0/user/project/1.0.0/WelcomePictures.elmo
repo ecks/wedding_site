@@ -1,0 +1,173 @@
+var _user$project$WelcomePictures$displayImage = F4(
+	function (offSet, path, width, height) {
+		return A2(
+			_evancz$elm_graphics$Collage$move,
+			offSet,
+			_evancz$elm_graphics$Collage$toForm(
+				A3(_evancz$elm_graphics$Element$image, width, height, path)));
+	});
+var _user$project$WelcomePictures$pictures = _elm_lang$core$Native_Platform.incomingPort(
+	'pictures',
+	_elm_lang$core$Json_Decode$list(
+		A2(
+			_elm_lang$core$Json_Decode$andThen,
+			A2(_elm_lang$core$Json_Decode_ops[':='], 'pictureName', _elm_lang$core$Json_Decode$string),
+			function (pictureName) {
+				return A2(
+					_elm_lang$core$Json_Decode$andThen,
+					A2(_elm_lang$core$Json_Decode_ops[':='], 'width', _elm_lang$core$Json_Decode$int),
+					function (width) {
+						return A2(
+							_elm_lang$core$Json_Decode$andThen,
+							A2(_elm_lang$core$Json_Decode_ops[':='], 'height', _elm_lang$core$Json_Decode$int),
+							function (height) {
+								return _elm_lang$core$Json_Decode$succeed(
+									{pictureName: pictureName, width: width, height: height});
+							});
+					});
+			})));
+var _user$project$WelcomePictures$Dimensions = F2(
+	function (a, b) {
+		return {width: a, height: b};
+	});
+var _user$project$WelcomePictures$Image = F2(
+	function (a, b) {
+		return {filename: a, dimensions: b};
+	});
+var _user$project$WelcomePictures$getImageFromModel = function (_p0) {
+	var _p1 = _p0;
+	var _p2 = A2(
+		_elm_lang$core$Array$get,
+		_p1.currentImageIndex,
+		_elm_lang$core$Array$fromList(_p1.images));
+	if (_p2.ctor === 'Just') {
+		return _p2._0;
+	} else {
+		return A2(
+			_user$project$WelcomePictures$Image,
+			'',
+			A2(_user$project$WelcomePictures$Dimensions, 0, 0));
+	}
+};
+var _user$project$WelcomePictures$displayImages = function (model) {
+	var image = _user$project$WelcomePictures$getImageFromModel(model);
+	return _elm_lang$core$Native_List.fromArray(
+		[
+			A4(
+			_user$project$WelcomePictures$displayImage,
+			{ctor: '_Tuple2', _0: 0, _1: 0},
+			image.filename,
+			image.dimensions.width,
+			image.dimensions.height)
+		]);
+};
+var _user$project$WelcomePictures$pictureToImage = function (picture) {
+	return A2(
+		_user$project$WelcomePictures$Image,
+		picture.pictureName,
+		A2(_user$project$WelcomePictures$Dimensions, picture.width, picture.height));
+};
+var _user$project$WelcomePictures$Model = F2(
+	function (a, b) {
+		return {currentImageIndex: a, images: b};
+	});
+var _user$project$WelcomePictures$init = {
+	ctor: '_Tuple2',
+	_0: A2(
+		_user$project$WelcomePictures$Model,
+		0,
+		_elm_lang$core$Native_List.fromArray(
+			[])),
+	_1: _elm_lang$core$Platform_Cmd$none
+};
+var _user$project$WelcomePictures$update = F2(
+	function (msg, model) {
+		var _p3 = msg;
+		switch (_p3.ctor) {
+			case 'Prev':
+				return {
+					ctor: '_Tuple2',
+					_0: A2(
+						_user$project$WelcomePictures$Model,
+						A2(
+							_elm_lang$core$Basics_ops['%'],
+							model.currentImageIndex - 1,
+							_elm_lang$core$List$length(model.images)),
+						model.images),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Next':
+				return {
+					ctor: '_Tuple2',
+					_0: A2(
+						_user$project$WelcomePictures$Model,
+						A2(
+							_elm_lang$core$Basics_ops['%'],
+							model.currentImageIndex + 1,
+							_elm_lang$core$List$length(model.images)),
+						model.images),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			default:
+				var newImages = A2(_elm_lang$core$List$map, _user$project$WelcomePictures$pictureToImage, _p3._0);
+				return {
+					ctor: '_Tuple2',
+					_0: A2(
+						_user$project$WelcomePictures$Model,
+						model.currentImageIndex,
+						A2(_elm_lang$core$Basics_ops['++'], newImages, model.images)),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+		}
+	});
+var _user$project$WelcomePictures$PortMsg = F3(
+	function (a, b, c) {
+		return {pictureName: a, width: b, height: c};
+	});
+var _user$project$WelcomePictures$AppendPictures = function (a) {
+	return {ctor: 'AppendPictures', _0: a};
+};
+var _user$project$WelcomePictures$subscriptions = function (model) {
+	return _user$project$WelcomePictures$pictures(_user$project$WelcomePictures$AppendPictures);
+};
+var _user$project$WelcomePictures$Next = {ctor: 'Next'};
+var _user$project$WelcomePictures$Prev = {ctor: 'Prev'};
+var _user$project$WelcomePictures$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_evancz$elm_graphics$Element$toHtml(
+				A3(
+					_evancz$elm_graphics$Collage$collage,
+					500,
+					500,
+					_user$project$WelcomePictures$displayImages(model))),
+				A2(
+				_elm_lang$html$Html$button,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Events$onClick(_user$project$WelcomePictures$Prev)
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('<')
+					])),
+				A2(
+				_elm_lang$html$Html$button,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Events$onClick(_user$project$WelcomePictures$Next)
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('>')
+					]))
+			]));
+};
+var _user$project$WelcomePictures$main = {
+	main: _elm_lang$html$Html_App$program(
+		{init: _user$project$WelcomePictures$init, view: _user$project$WelcomePictures$view, update: _user$project$WelcomePictures$update, subscriptions: _user$project$WelcomePictures$subscriptions})
+};

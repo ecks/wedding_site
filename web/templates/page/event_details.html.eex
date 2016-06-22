@@ -1,0 +1,35 @@
+<%= render "banner.html" %>
+<img src="/images/event_details.jpg" style="margin-top:20px;" />
+<br>
+<br>
+<div id="elm-eventdetails-pictures" style="float:right"></div>
+<br>
+<br>
+<h4 style="color:Maroon"><i>Wait a minute! What is this thing they are making us go to again? A wedding! WOW! That sounds like fun! Let's go! Where are we supposed to go? What time?:</i></h4>
+<br>
+<h4 style="font-family:Monotype; color:Navy">
+JUNE 12TH 2016 at 4:00PM-8:00PM<br>
+FAUNBROOK BED AND BREAKFAST<br>
+699 W ROSEDALE AVE, WEST CHESTER, PA 19382</h4>
+ 
+<h3 style="color:Violet">Here is a link to the site:</h3>
+<a style="color:Violet" href="http://faunbrook.com">http://faunbrook.com/</a>
+<br> 
+<h3 style="color:Maroon"><i>Okay, okay... So what should I wear?</i></h3>
+
+<h4 style="color:Navy">Its going to be June and warm outside. Its at a historic bed and breakfast...hmmm...So! Something nice but not toooo fancy. Think woodland/rustic greets Great Gatsby. We want you to be comfortable. You will be in pictures. It's an intimate wedding afterall!</h4>
+ 
+<h3 style="color:Violet">Where should we park? Is it a long drive?</h3>
+
+<h4 style="color:Maroon">Parking is at the bed and breakfast. No worries. There is room! Drive from Cherry Hill, NJ is about 1 hour.</h4>
+
+<h3 style="Color:Magenta">Schedule</h3>
+<h4 style="color:Navy">
+<ul>
+  <li>4:00 - 4:15 \\ Procession</li>
+  <li>4:15 - 4:45 \\ Ceremony and Recession</li>
+  <li>4:45 - 5:45 \\ Cocktail Hour</li>
+  <li>6:00 - 7:00 \\ Sit Down Dinner</li>
+  <li>7:00 - 7:10 \\ Cake Cutting</li>
+  <li>7:10 - 8:00 \\ First Dance ; Regular Dance</li>
+</ul>

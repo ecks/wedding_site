@@ -1,0 +1,19 @@
+<%= render "banner.html" %>
+<img src="/images/welcome.gif" style="margin-top:20px;" />
+<br>
+<br>
+<div id="elm-welcome-pictures" style="float:right"></div>
+<h4>Hello Friends and Family!
+<br>
+<br> 
+<br>
+Thank you for visiting our website. 
+<br>
+<br>
+We’re so happy to have you as part of this moment and look forward to seeing you on 6/12/2016!
+<br>
+<br> 
+<br>
+With love,
+<br>
+Leslie and Hristo</h4>

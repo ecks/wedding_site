@@ -1,0 +1,150 @@
+var _user$project$AboutUsPictures$displayImage = F4(
+	function (offSet, path, width, height) {
+		return A2(
+			_evancz$elm_graphics$Collage$move,
+			offSet,
+			_evancz$elm_graphics$Collage$toForm(
+				A3(_evancz$elm_graphics$Element$image, width, height, path)));
+	});
+var _user$project$AboutUsPictures$Dimensions = F2(
+	function (a, b) {
+		return {width: a, height: b};
+	});
+var _user$project$AboutUsPictures$Image = F2(
+	function (a, b) {
+		return {filename: a, dimensions: b};
+	});
+var _user$project$AboutUsPictures$getImageFromModel = function (_p0) {
+	var _p1 = _p0;
+	var _p2 = A2(
+		_elm_lang$core$Array$get,
+		_p1.currentImageIndex,
+		_elm_lang$core$Array$fromList(_p1.images));
+	if (_p2.ctor === 'Just') {
+		return _p2._0;
+	} else {
+		return A2(
+			_user$project$AboutUsPictures$Image,
+			'',
+			A2(_user$project$AboutUsPictures$Dimensions, 0, 0));
+	}
+};
+var _user$project$AboutUsPictures$displayImages = function (model) {
+	var image = _user$project$AboutUsPictures$getImageFromModel(model);
+	return _elm_lang$core$Native_List.fromArray(
+		[
+			A4(
+			_user$project$AboutUsPictures$displayImage,
+			{ctor: '_Tuple2', _0: 0, _1: 0},
+			image.filename,
+			image.dimensions.width,
+			image.dimensions.height)
+		]);
+};
+var _user$project$AboutUsPictures$Model = F2(
+	function (a, b) {
+		return {currentImageIndex: a, images: b};
+	});
+var _user$project$AboutUsPictures$init = {
+	ctor: '_Tuple2',
+	_0: A2(
+		_user$project$AboutUsPictures$Model,
+		0,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_user$project$AboutUsPictures$Image,
+				'images/about_us1.jpg',
+				A2(_user$project$AboutUsPictures$Dimensions, 250, 187)),
+				A2(
+				_user$project$AboutUsPictures$Image,
+				'images/about_us2.jpeg',
+				A2(_user$project$AboutUsPictures$Dimensions, 250, 187)),
+				A2(
+				_user$project$AboutUsPictures$Image,
+				'images/about_us3.jpg',
+				A2(_user$project$AboutUsPictures$Dimensions, 140, 250)),
+				A2(
+				_user$project$AboutUsPictures$Image,
+				'images/about_us4.jpg',
+				A2(_user$project$AboutUsPictures$Dimensions, 250, 187))
+			])),
+	_1: _elm_lang$core$Platform_Cmd$none
+};
+var _user$project$AboutUsPictures$update = F2(
+	function (msg, model) {
+		var _p3 = msg;
+		if (_p3.ctor === 'Prev') {
+			return {
+				ctor: '_Tuple2',
+				_0: A2(
+					_user$project$AboutUsPictures$Model,
+					A2(
+						_elm_lang$core$Basics_ops['%'],
+						model.currentImageIndex - 1,
+						_elm_lang$core$List$length(model.images)),
+					model.images),
+				_1: _elm_lang$core$Platform_Cmd$none
+			};
+		} else {
+			return {
+				ctor: '_Tuple2',
+				_0: A2(
+					_user$project$AboutUsPictures$Model,
+					A2(
+						_elm_lang$core$Basics_ops['%'],
+						model.currentImageIndex + 1,
+						_elm_lang$core$List$length(model.images)),
+					model.images),
+				_1: _elm_lang$core$Platform_Cmd$none
+			};
+		}
+	});
+var _user$project$AboutUsPictures$Next = {ctor: 'Next'};
+var _user$project$AboutUsPictures$Prev = {ctor: 'Prev'};
+var _user$project$AboutUsPictures$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_evancz$elm_graphics$Element$toHtml(
+				A3(
+					_evancz$elm_graphics$Collage$collage,
+					250,
+					250,
+					_user$project$AboutUsPictures$displayImages(model))),
+				A2(
+				_elm_lang$html$Html$button,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Events$onClick(_user$project$AboutUsPictures$Prev)
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('<')
+					])),
+				A2(
+				_elm_lang$html$Html$button,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Events$onClick(_user$project$AboutUsPictures$Next)
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('>')
+					]))
+			]));
+};
+var _user$project$AboutUsPictures$main = {
+	main: _elm_lang$html$Html_App$program(
+		{
+			init: _user$project$AboutUsPictures$init,
+			view: _user$project$AboutUsPictures$view,
+			update: _user$project$AboutUsPictures$update,
+			subscriptions: function (_p4) {
+				return _elm_lang$core$Platform_Sub$none;
+			}
+		})
+};
