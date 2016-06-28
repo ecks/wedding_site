@@ -1,4 +1,4 @@
-port module WelcomePictures exposing (..)
+port module Pictures exposing (..)
 
 import Collage as C
 import Color
@@ -10,17 +10,17 @@ import Html.App exposing (program)
 import Html.Events exposing (onClick)
 
 import Array exposing (get, fromList)
-import List exposing (length, map)
+import List exposing (length, map, head)
 
 main = 
   program {init = init, view = view, update = update, subscriptions = subscriptions}
 
 type alias Dimensions = { width : Int, height : Int}
 type alias Image = { filename : String, dimensions : Dimensions}
-type alias Model = { currentImageIndex : Int, images : List Image }
+type alias Model = { currentImageIndex : Int, images : List Image, cWidth : Int, cHeight : Int }
 
 init = 
-  (Model 0  [], Cmd.none)
+  (Model 0 [] 0 0, Cmd.none)
 
 getImageFromModel {currentImageIndex, images} =
   case get currentImageIndex (fromList images) of
@@ -41,14 +41,15 @@ displayImages model =
 view model =
   div []
     [displayImages model {-- ++ [displayTriangle (5, -100) 5, (C.rotate (degrees 180) (displayTriangle (-5, -100) 5))] --}
-      |> C.collage 500 500
+      |> C.collage model.cWidth model.cHeight 
       |> E.toHtml
      , button [ onClick Prev ] [text "<"]
      , button [ onClick Next ] [text ">"]]
 
 type Msg = Prev | 
            Next |
-           AppendPictures (List PortMsg)
+           AppendPictures (List PicPortMsg) |
+           SetCollage (List ColPortMsg)
 
 pictureToImage picture = 
   Image picture.pictureName (Dimensions picture.width picture.height) 
@@ -56,18 +57,34 @@ pictureToImage picture =
 update msg model = 
   case msg of 
     Prev ->
-      (Model ((model.currentImageIndex - 1) % (length model.images)) model.images, Cmd.none)  
+      (Model ((model.currentImageIndex - 1) % (length model.images)) model.images model.cWidth model.cHeight, Cmd.none)  
     Next ->
-      (Model ((model.currentImageIndex + 1) % (length model.images)) model.images, Cmd.none) 
+      (Model ((model.currentImageIndex + 1) % (length model.images)) model.images model.cWidth model.cHeight, Cmd.none) 
     AppendPictures pictures ->
       let 
         newImages = map pictureToImage pictures
       in
-        (Model model.currentImageIndex (newImages ++ model.images), Cmd.none)
+        (Model model.currentImageIndex (newImages ++ model.images) model.cWidth model.cHeight, Cmd.none)
+    SetCollage collage ->
+      let 
+        mCollage =  List.head collage
+      in
+        case mCollage of
+          (Just hCollage) ->
+            (Model model.currentImageIndex model.images hCollage.cWidth hCollage.cHeight, Cmd.none)
+          Nothing ->
+            (Model model.currentImageIndex model.images 0 0, Cmd.none)
 
-type alias PortMsg = { pictureName : String, width : Int, height : Int }
 
-port pictures : (List PortMsg -> msg) -> Sub msg
+type alias PicPortMsg = { pictureName : String, width : Int, height : Int }
+
+port pictures : (List PicPortMsg -> msg) -> Sub msg
+
+type alias ColPortMsg = { cWidth : Int, cHeight : Int }
+
+port collage : (List ColPortMsg -> msg) -> Sub msg
 
 subscriptions model = 
-  pictures AppendPictures
+  Sub.batch
+    [pictures AppendPictures,
+     collage SetCollage]

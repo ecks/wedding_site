@@ -2,8 +2,8 @@ exports.config = {
   // See http://brunch.io/#documentation for docs.
   files: {
     javascripts: {
-      joinTo: "js/app.js"
-
+      joinTo:
+          'js/app.js'
       // To use a separate vendor.js bundle, specify two files path
       // https://github.com/brunch/brunch/blob/stable/docs/config.md#files
       // joinTo: {
@@ -42,9 +42,7 @@ exports.config = {
       "web/static",
       "test/static",
       "web/elm/SeatingChart.elm",
-      "web/elm/WelcomePictures.elm",
-      "web/elm/AboutUsPictures.elm",
-      "web/elm/EventDetailsPictures.elm",
+      "web/elm/Pictures.elm",
     ],
 
     // Where to compile files to
@@ -55,7 +53,7 @@ exports.config = {
   plugins: {
     elmBrunch: {
       elmFolder: 'web/elm',
-      mainModules: ['SeatingChart.elm', 'WelcomePictures.elm', 'AboutUsPictures.elm', 'EventDetailsPictures.elm'],
+      mainModules: ['SeatingChart.elm', 'Pictures.elm'],
       outputFolder: '../static/vendor'
     },
     babel: {

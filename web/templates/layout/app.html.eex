@@ -28,5 +28,6 @@
 
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <body data-js-view-name="<%= js_view_name(@conn, @view_template) %>">
   </body>
 </html>

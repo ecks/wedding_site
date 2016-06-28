@@ -55,20 +55,24 @@ defmodule WeddingSite.PicturesChannel do
   def handle_info(:after_wel_join, socket) do
     pictures = (from p in WeddingSite.Pictures, order_by: [asc: p.id], where: p.webpage == "Welcome") |> Repo.all
     push socket, "set_wel_pictures", %{pictures: pictures}
+    collage = (from p in WeddingSite.Collage, order_by: [asc: p.id], where: p.webpage == "Welcome") |> Repo.all
+    push socket, "set_collage", %{collage: collage}
     {:noreply, socket}
   end 
 
   def handle_info(:after_au_join, socket) do
     pictures = (from p in WeddingSite.Pictures, order_by: [asc: p.id], where: p.webpage == "AboutUs") |> Repo.all
     push socket, "set_au_pictures", %{pictures: pictures}
-
+    collage = (from p in WeddingSite.Collage, order_by: [asc: p.id], where: p.webpage == "AboutUs") |> Repo.all
+    push socket, "set_collage", %{collage: collage}
     {:noreply, socket}
   end 
 
   def handle_info(:after_ed_join, socket) do
     pictures = (from p in WeddingSite.Pictures, order_by: [asc: p.id], where: p.webpage == "EventDetails") |> Repo.all
     push socket, "set_ed_pictures", %{pictures: pictures}
-
+    collage = (from p in WeddingSite.Collage, order_by: [asc: p.id], where: p.webpage == "EventDetails") |> Repo.all
+    push socket, "set_collage", %{collage: collage}
     {:noreply, socket}
   end 
 

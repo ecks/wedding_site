@@ -21,3 +21,8 @@ WeddingSite.Repo.insert!(%WeddingSite.Pictures{webpage: "AboutUs", picture_name:
 
 WeddingSite.Repo.insert!(%WeddingSite.Pictures{webpage: "EventDetails", picture_name: "images/event_details1.jpg", width: 250, height: 145})
 WeddingSite.Repo.insert!(%WeddingSite.Pictures{webpage: "EventDetails", picture_name: "images/event_details2.jpg", width: 250, height: 145})
+
+WeddingSite.Repo.insert!(%WeddingSite.Collage{webpage: "Welcome", c_width: 500, c_height: 500})
+WeddingSite.Repo.insert!(%WeddingSite.Collage{webpage: "AboutUs", c_width: 250, c_height: 250})
+WeddingSite.Repo.insert!(%WeddingSite.Collage{webpage: "EventDetails", c_width: 250, c_height: 145})
+
